@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     public TMPro.TextMeshProUGUI nameText;
     public TMPro.TextMeshProUGUI dialogueText;
     public GameObject box;
-    private GameObject thisone;
+    public GameObject thisone;
 
     void Start()
     {
@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
         thisone = act;
         //Debug.Log(act);
         sentences.Clear();
+        //Debug.Log(dialogue.name);
 
         box.SetActive(true);
         nameText.text = dialogue.name;

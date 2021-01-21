@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TheGame : MonoBehaviour
 {
+
     public bool WoodQuestDone = false;
     void Start()
     {
@@ -13,6 +14,7 @@ public class TheGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         GameObject myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         if (WoodQuestDone)
