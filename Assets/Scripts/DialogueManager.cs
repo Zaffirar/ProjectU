@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     public TMPro.TextMeshProUGUI nameText;
     public TMPro.TextMeshProUGUI dialogueText;
     public GameObject box;
+    private GameObject thisone;
 
     void Start()
     {
@@ -17,8 +18,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void StartDialogue(Dialogue dialogue, int number)
+    public void StartDialogue(Dialogue dialogue, int number, GameObject act)
     {
+        thisone = act;
+        //Debug.Log(act);
         sentences.Clear();
 
         box.SetActive(true);
@@ -76,9 +79,12 @@ public class DialogueManager : MonoBehaviour
     }
     public void EndDialogue()
     {
+        //Debug.Log(thisone);
         box.SetActive(false);
-        GameObject eng = GameObject.Find("Engineer");
-        EngineerScript end = eng.GetComponent<EngineerScript>();
-        end.dialogueend = true;
+        EngineerScript end = thisone.GetComponent<EngineerScript>();
+        QuestGiver qst = thisone.GetComponent<QuestGiver>();
+        if(end.quest1 == 0 || end.quest1 == 2)
+            qst.OpenQuestWindow();
+        //end.dialogueend = true;
     }
 }

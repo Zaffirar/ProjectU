@@ -20,7 +20,7 @@ public class FlashingScript : MonoBehaviour
     void Update()
     {
         //Debug.Log(colr);
-        speed = 0.8f * Time.deltaTime;
+        speed = 0.7f * Time.deltaTime;
         src = colr.color;
         if (!t)
         {
