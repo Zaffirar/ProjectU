@@ -13,7 +13,9 @@ public class TheGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(WoodQuestDone)
+        GameObject myEventSystem = GameObject.Find("EventSystem");
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+        if (WoodQuestDone)
         {
             GameObject[] Woodies = GameObject.FindGameObjectsWithTag("Woodman");
             foreach(GameObject woodie in Woodies)
