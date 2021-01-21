@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EngineerScript : MonoBehaviour
 {
-    public int quest1done = 0;
+    public int quest1 = 0;//0 - nic, 1 odmowa, 2 przyjeto, 3 zakonczono
+    public int quest2 = 0;
     public float distance;
     public bool dialogueend = true;
     public GameObject theplayer;
@@ -19,21 +20,46 @@ public class EngineerScript : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(gameObject.transform.position, theplayer.transform.position);
-        if(quest1done == 0 && distance <= 2f && dialogueend)
+        if (distance <= 2f && dialogueend)
         {
             interacttext.enabled = true;
-            if(Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 dialogueend = false;
                 interacttext.enabled = false;
-                scr.TriggerDialogue();
+                if (quest1 == 3)
+                {
+                    if (quest2 == 0)
+                    {
+                        scr.TriggerDialogue(4);
+                    }
+                    else
+                    {
+                        scr.TriggerDialogue(5);
+                    }
+                }
+                else
+                {
+                    if (quest1 == 0)
+                    {
+                        scr.TriggerDialogue(0);
+                    }
+                    if (quest1 == 1)
+                    {
+                        scr.TriggerDialogue(1);
+                    }
+                    if (quest1 == 2)
+                    {
+                        scr.TriggerDialogue(2);
+                    }
+                    if (quest1 == 3)
+                    {
+                        scr.TriggerDialogue(3);
+                    } 
+                }
             }
-        }
-        if(quest1done == 1 && distance <= 2f)
-        {
-
-        }
-        if(distance > 2f)
+        }         
+        if (distance > 2f)
         {
             interacttext.enabled = false;
         }
