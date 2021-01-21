@@ -121,6 +121,7 @@ MonoBehaviour:
   currentHp: 0
   spriteRenderer: {fileID: 2632317362955245647}
   animator: {fileID: 6683074270540723524}
+  damage: 0
 --- !u!1 &4252209399707042681
 GameObject:
   m_ObjectHideFlags: 0

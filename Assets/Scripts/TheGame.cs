@@ -33,15 +33,18 @@ public class TheGame : MonoBehaviour
                 actwoodie.GetComponent<Renderer>().enabled = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            mainCam.enabled = false;
-            figthCam.enabled = true;
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            mainCam.enabled = true;
-            figthCam.enabled = false;
-        }
+
+    }
+    public void enableFightMode()
+    {
+        mainCam.enabled = false;
+        figthCam.enabled = true;
+        figthModeEnabled = true;
+    }
+    public void disableFigthMode()
+    {
+        mainCam.enabled = true;
+        figthCam.enabled = false;
+        figthModeEnabled = false;
     }
 }

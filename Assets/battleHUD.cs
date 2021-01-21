@@ -8,17 +8,17 @@ public class battleHUD : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI levelText;
-    public Slider hpSlider;
+    public HealthBar bar;
 
     public void SetHUD(FigthingUnit unit)
     {
         nameText.text = unit.unitName;
         levelText.text = "Lvl " + unit.unitLevel;
-        hpSlider.maxValue = unit.maxHp;
-        hpSlider.value = unit.currentHp;
+        bar.SetMaxHealth(unit.maxHp);
+        bar.SetHealth(unit.currentHp);
     }
     public void SetHP(int hp)
     {
-        hpSlider.value = hp;
+        bar.SetHealth(hp);
     }
 }
